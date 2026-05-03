@@ -30,7 +30,5 @@ The model achieves a high **R2 Score**, demonstrating its ability to capture non
 
 ## Evaluation 
 R2 Score: 0.9079
-
 MAE: 2396.29
-
 RMSE: 3356.58
