@@ -80,15 +80,40 @@ print(f"R2 Score: {r2_score(y_test, y_pred):.4f}")
 print(f"MAE: {mean_absolute_error(y_test, y_pred):.2f}")
 print(f"RMSE: {np.sqrt(mean_squared_error(y_test, y_pred)):.2f}")
 
-# 8. Visualization: Actual vs Predicted
-plt.figure(figsize=(8, 6))
-plt.scatter(y_test, y_pred, alpha=0.5, color='teal')
-plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
-plt.title("Actual vs Predicted Car Prices")
-plt.xlabel("Actual Price")
-plt.ylabel("Predicted Price")
-plt.savefig("actual_vs_predicted.png")
+# 7. Evaluation
+y_pred = model.predict(X_test_scaled).flatten()
+
+print("\n--- Model Evaluation ---")
+print(f"R2 Score: {r2_score(y_test, y_pred):.4f}")
+print(f"MAE: {mean_absolute_error(y_test, y_pred):.2f}")
+print(f"RMSE: {np.sqrt(mean_squared_error(y_test, y_pred)):.2f}")
+
+# 8. Visualization: Model Performance (Loss Curve & Scatter Plot)
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# Grafik 1: Training vs Validation Loss (Loss Curve)
+axes[0].plot(history.history['loss'], label='Train Loss', color='blue', linewidth=2)
+axes[0].plot(history.history['val_loss'], label='Val Loss', color='orange', linewidth=2)
+axes[0].set_title('Model Loss (Training vs Validation)', fontweight='bold')
+axes[0].set_xlabel('Epochs')
+axes[0].set_ylabel('Loss (MSE)')
+axes[0].legend()
+
+# Grafik 2: Actual vs Predicted Prices (Scatter Plot)
+axes[1].scatter(y_test, y_pred, alpha=0.6, color='teal')
+axes[1].plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--', lw=2)
+axes[1].set_title("Actual vs Predicted Car Prices", fontweight='bold')
+axes[1].set_xlabel("Actual Price")
+axes[1].set_ylabel("Predicted Price")
+
+plt.tight_layout()
+plt.savefig("ann_performance_charts.png")
 plt.show()
+
+# 9. Save Model and Scaler
+model.save("car_price_model.h5")
+joblib.dump(scaler, "scaler_ann.pkl")
+print("\nModel and Scaler saved!")
 
 # 9. Save Model and Scaler
 model.save("car_price_model.h5")
