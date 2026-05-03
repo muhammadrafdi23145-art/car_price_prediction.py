@@ -26,9 +26,11 @@ The model achieves a high **R2 Score**, demonstrating its ability to capture non
 - `scaler_ann.pkl`: Scaler for data normalization.
 
 ## Result
-<img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/9147f7d9-f277-4ef9-8288-38200390c423" />
---- Model Evaluation ---
-R2 Score: 0.8980
-MAE: 2437.18
-RMSE: 3531.85
+<img width="1489" height="590" alt="image" src="https://github.com/user-attachments/assets/97153801-93e3-4f6d-8f96-5a7483b4aa76" />
 
+## Evaluation 
+R2 Score: 0.9079
+
+MAE: 2396.29
+
+RMSE: 3356.58
