@@ -27,4 +27,8 @@ The model achieves a high **R2 Score**, demonstrating its ability to capture non
 
 ## Result
 <img width="1389" height="490" alt="image" src="https://github.com/user-attachments/assets/9147f7d9-f277-4ef9-8288-38200390c423" />
+--- Model Evaluation ---
+R2 Score: 0.8980
+MAE: 2437.18
+RMSE: 3531.85
 
